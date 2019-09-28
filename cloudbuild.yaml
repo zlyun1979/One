@@ -1,0 +1,12 @@
+steps:
+  # build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/manifest-emblem-253519/mypageone', '.']
+  # push the container image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/manifest-emblem-253519/mypageone']
+  # Deploy container image to Cloud Run
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['beta', 'run', 'deploy', 'mypageone', '--image', 'gcr.io/manifest-emblem-253519/mypageone', '--region', 'us-east1','--platform', 'gke', '--quiet']
+images:
+- gcr.io/manifest-emblem-253519/mypageone

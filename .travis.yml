@@ -3,4 +3,4 @@ services:
   - docker
 
 before_install:
-  - docker build -t ProjectOne/one .
+  - docker build -t lzhao/one .

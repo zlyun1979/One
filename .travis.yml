@@ -1,4 +1,6 @@
 sudo: required
 services:
   - docker
-before
+
+before_install:
+  - docker build -t ProjectOne/one .
